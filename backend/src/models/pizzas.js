@@ -10,16 +10,16 @@ import {Schema, model} from "mongoose"
 
 const pizzaSchema = new Schema({
     name: {
-        type: String
+        type: String,
     },
     description: {
-        type: String
+        type: String,
     },
     price: {
-        type: Number
+        type: Number,
     },
     stock: {
-        type: Number
+        type: Number,
     }
 }, {
     timestamps: true,
