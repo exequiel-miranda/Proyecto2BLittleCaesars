@@ -1,8 +1,6 @@
 // Creo un array de funciones vacio
 
 const branchesController = {}
-
-import branches from "../models/branches.js"
 //Importo el model de la coleccion que voy a ocupar
 import branchesModel from "../models/branches.js"
 
