@@ -11,6 +11,8 @@ import cors from "cors";
 import recoveryPasswordRoutes from "./src/routes/recoveryPassword.js";
 import providerRoutes from "./src/routes/provider.js";
 import cartRoutes from "./src/routes/cart.js"
+import wompiRoutes from "./src/routes/wompi.js"
+import deliveriesRoutes from "./src/routes/deliveries.js"
 
 //Creo una constante que es igual a
 //la libreria Express
@@ -23,12 +25,8 @@ app.use(
     credentials: true,
   }),
 );
-
 app.use(cookieParser());
-
-//Para que la API acepte json
 app.use(express.json());
-
 app.use("/api/pizzas", pizzaRoutes);
 app.use("/api/branches", branchesRoutes);
 app.use("/api/employee", employeesRoutes);
@@ -39,4 +37,7 @@ app.use("/api/logout", logoutRoute);
 app.use("/api/recoveryPassword", recoveryPasswordRoutes);
 app.use("/api/providers", providerRoutes);
 app.use("/api/cart", cartRoutes)
+app.use("/api/wompi", wompiRoutes)
+app.use("/api/deliveries", deliveriesRoutes)
+
 export default app;
