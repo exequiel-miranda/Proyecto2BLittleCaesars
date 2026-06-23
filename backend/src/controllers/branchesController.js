@@ -1,17 +1,14 @@
-//#1- Creo un array de funciones vacio
-const branchesController = {};
-
 //#2- Importo el Schema de la colección que voy a ocupar
 import branchesModel from "../models/branches.js";
 
 //SELECT
-branchesController.getbranches = async (req, res) => {
+export const getbranches = async (req, res) => {
   const branches = await branchesModel.find();
   res.json(branches);
 };
 
 //INSERT
-branchesController.insertBranches = async (req, res) => {
+export const insertBranches = async (req, res) => {
   //#1- Solicito los datos que quiero guardar
   const { name, address, schedule, isActive } = req.body;
   //#2- lleno el Schema con estos datos

@@ -59,7 +59,7 @@ loginCustomerController.login = async (req, res) => {
       //#1- ¿que vamos a guardar?
       { id: customerFound._id, userType: "customer" },
       //#2- secret key
-      config.JWTsecret,
+      config.JWT.secret,
       //#3- Cuando expira
       { expiresIn: "30d" },
     );

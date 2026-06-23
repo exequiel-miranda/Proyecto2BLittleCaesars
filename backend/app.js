@@ -1,5 +1,5 @@
 import express from "express";
-import pizzaRoutes from "./src/routes/pizza.js";
+import pizzaRoutesxd from "./src/routes/pizza.js";
 import branchesRoutes from "./src/routes/branches.js";
 import employeesRoutes from "./src/routes/employees.js";
 import customerRoutes from "./src/routes/customer.js";
@@ -13,9 +13,9 @@ import providerRoutes from "./src/routes/provider.js";
 import cartRoutes from "./src/routes/cart.js"
 import wompiRoutes from "./src/routes/wompi.js"
 import deliveriesRoutes from "./src/routes/deliveries.js"
+import { validateAuthCookie } from "./src/middlewares/authMiddleware.js"
 
-//Creo una constante que es igual a
-//la libreria Express
+//Creo una constante que es igual a la libreria Express
 const app = express();
 
 app.use(
@@ -26,10 +26,11 @@ app.use(
   }),
 );
 app.use(cookieParser());
+
 app.use(express.json());
 app.use("/api/pizzas", pizzaRoutes);
 app.use("/api/branches", branchesRoutes);
-app.use("/api/employee", employeesRoutes);
+app.use("/api/employee", validateAuthCookie(["customer"]), employeesRoutes);
 app.use("/api/customers", customerRoutes);
 app.use("/api/registerCustomer", registerCustomerRoutes);
 app.use("/api/loginCustomers", loginCustomerRoutes);
