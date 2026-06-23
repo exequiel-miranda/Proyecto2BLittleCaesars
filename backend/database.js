@@ -1,21 +1,21 @@
 import mongoose from "mongoose";
+import { config } from "../backend/config.js";
 
-mongoose.connect("mongodb://localhost:27017/littleCaesarDB")
+mongoose.connect(config.db.uri);
 
 //Comprobar que todo funciona
 
 //Creo una constante que es igual a la conexión
 const connection = mongoose.connection;
 
-connection.once("open", ()=>{
-    console.log("DB is connected")
-})
+connection.once("open", () => {
+  console.log("DB is connected");
+});
 
-connection.on("disconnected", ()=>{
-    console.log("DB is disconnected")
-})
+connection.on("disconnected", () => {
+  console.log("DB is disconnected");
+});
 
-connection.on("error", (error)=>{
-    console.log("Error found" + error)
-})
-
+connection.on("error", (error) => {
+  console.log("Error found" + error);
+});

@@ -1,5 +1,5 @@
 import express from "express";
-import pizzaRoutesxd from "./src/routes/pizza.js";
+import pizzaRoutes from "./src/routes/pizza.js";
 import branchesRoutes from "./src/routes/branches.js";
 import employeesRoutes from "./src/routes/employees.js";
 import customerRoutes from "./src/routes/customer.js";
